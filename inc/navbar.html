@@ -1,0 +1,204 @@
+<link rel="stylesheet" href="NavCss.css">
+
+
+
+<input type="checkbox" id="menu1">
+
+
+<nav class="nav-1">
+    <ul class="nav-ul">
+        <li>
+            <label for="menu1" onclick="toggleClass('.menu-group','active');">
+                <div class="menu-group">
+                    <div class="menu"></div>
+                    <div class="menu"></div>
+                    <div class="menu"></div>
+                </div>
+            </label>
+        </li>
+        <li class="nav-li title"> My App </li>
+        <li class="nav-li not-hov">
+            <span title="طلبات الصداقة" class="glyphicon glyphicon-user" onclick="toggleClass('.g-1','active');">
+                <span class="">طلبات الصداقة</span>
+            </span>
+
+            <div class="list-group-1 g-1">
+                <div dir="rtl" style="display: flex;justify-content: end;">
+                    <h2 class="list-1"> طلبات الصداقة </h2>
+                </div>
+                <table style="padding: 0;" id="iami"></table>
+            </div>
+
+        </li>
+        <li class="nav-li not-hov">
+            <span class="glyphicon glyphicon-user" onclick="toggleClass('.g-2','active');"></span>
+
+            <div class="list-group-1 g-2">
+                <div dir="rtl" style="display: flex;justify-content: end;">
+                    <h2 class="list-1"> الأصدقاء </h2>
+                </div>
+                <div id="ami">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="nav-ul">
+        <li class="nav-li"><a href="">Test 1</a></li>
+        <li class="nav-li"><a href="">Test 2</a></li>
+        <li class="nav-li" style="display: flex;width: 330px;">
+
+            <span class="input-field1 search" style="margin-left: 10px;">
+                <div class="input-field-group">
+                    <input type="search" class="input-field input-field-2" style="border: 0;" id="search" placeholder="Search">
+                    <!--<span style="margin: 14px;" title="Search" class="glyphicon glyphicon-search"></span> -->
+            <span id="search1" style="margin: 14px;" title="Search" class="glyphicon glyphicon-search recharch"></span>
+            </div>
+
+            </span>
+            <div class="list-search">
+                <!--<div class="list-s">Test 1</div>
+                <div class="list-s">Test 2</div>
+                <div class="list-s">Test 3</div>-->
+            </div>
+            <!--<table class="list-search list-search-tbl"></table>-->
+
+            <!--<span id="search1" style="margin: 14px;" title="Search" class="glyphicon glyphicon-search recharch"></span>-->
+    </ul>
+</nav>
+
+
+
+<div class="silder-menue">
+    <ul class="si-ul">
+        <li class="si-li"><a href="">Test 1</a></li>
+        <li class="si-li"><a href="">Test 2</a></li>
+        <li class="si-li"><a href="Logout.php">Logout</a></li>
+        <li class="si-li si"><span onclick="toggleClass('.in-group','active');toggleClass('.gly','active');"> Test 4 <i class="glyphicon glyphicon-menu-down gly"></i> </span>
+            <div class="in-group">
+                <div>
+                    <a href="">index 1</a>
+                    <a href="">index 2</a>
+                    <a href="">index 3</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<div class="amis-list">
+    <div class="amis">
+
+    </div>
+    <div class="chat-primery">
+        <!--<div class="title-chat">
+            <img src="img/f2.png" alt="">
+            <div class="name">
+                Ahmed Amr
+            </div>
+            <input type="hidden" id="3" class="emp">
+        </div>
+        <div class="massge" style="display: block;">
+            <div class="me">
+                <div class="msgM">
+                    Test me 1
+                </div>
+            </div>
+
+            <div class="me">
+                <div class="msgM">
+                    Test me 1
+                </div>
+            </div>
+
+
+            <div class="amimsg">
+                    <div class="nameAmi">
+                        Ahmed Amr
+                    </div>
+                    <div class="msgM">
+                        Test 1
+                    </div>
+                    <img src="img/f2.png" alt="">
+            </div>
+
+            <div class="dataTime">
+                03:05:25
+            </div>
+
+            <div class="amimsg">
+                <div class="nameAmi">
+                    Ahmed Amr
+                </div>
+                <div class="msgM">
+                    Test 1
+                </div>
+                <img src="img/f2.png" alt="">
+            </div>
+
+            <div class="me">
+                <div class="msgM">
+                    Test me 1
+                </div>
+            </div>
+
+            <div class="amimsg">
+                <div class="nameAmi">
+                    Ahmed Amr
+                </div>
+                <div class="msgM">
+                    Test 1
+                </div>
+                <img src="img/f2.png" alt="">
+            </div>
+
+            <?php
+            /*$r = "";
+            $date = 0;
+            $select = mysqli_query( $coon , "SELECT * FROM `massge_v` WHERE (`emp NO` = 1
+                OR`emp NO2` = 1) AND (`emp NO` = 3 OR `emp NO2` = 3) ORDER by 'date'" )
+                or die( mysqli_error( $coon ) );
+            if( mysqli_num_rows($select) > 0 ){
+                while( $row = mysqli_fetch_assoc($select) ){
+                    if( $date != $row['date'] ){
+                        $date = $row['date'];
+                        $r .= "<div class='dataTime'>$date</div>";
+                    }
+            
+                    if( $row['emp NO'] == $id ){
+                        $r .= "<div class='me'><div class='msgM'> " . $row['massge'] . " </div></div>";
+                    }
+                    else if( $row['emp NO2'] == $id ){
+                        $r .= "<div class='amimsg'><div class='nameAmi'>Ahmed Amr</div>
+                            <div class='msgM'>" . $row['massge'] . "</div><img src='img/f2.png'></div>";
+                    }
+                }
+                echo $r;
+            }
+            else{
+                echo "<div>لا رسائل حتى الآن</div>";
+            }*/
+            
+            ?>
+
+        </div>-->
+        <div class="text-massge">
+            <input id="textSend" placeholder="أكتب رسالتك" dir="rtl" type="text" id="">
+            <i class="glyphicon glyphicon-send" id="sendID"></i>
+        </div>
+    </div>
+</div>
+
+<h2 id="hh"></h2>
+
+
+<div class="chat">
+
+</div>
+
+<script src="NavJS.js"></script>
+<!--<button disabled="disabled"  id="test">Test</button>-->
